@@ -36,7 +36,7 @@ public class Main {
                     menu = sc.nextInt();
                     sc.nextLine();  // 버퍼 비우기
                     // 사용자 입력값이 적절한 경우
-                    if(menu>=0 && menu<totalItems.size()) {
+                    if(menu>=0 && menu<=totalItems.size()) {
                         break;
                     }
                 }
