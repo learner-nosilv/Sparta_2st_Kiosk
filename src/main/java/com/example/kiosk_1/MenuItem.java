@@ -12,6 +12,13 @@ public class MenuItem {
     private int itemPrice;
     private String itemDescription;
 
+    // 생성자
+    public MenuItem(String itemName, int itemPrice, String itemDescription) {
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
+        this.itemDescription = itemDescription;
+    }
+
     // Getter, Setter 메서드를 활용한 Capsulation
     public String getName(){return itemName;}
     public int getPrice(){ return itemPrice;}
@@ -19,4 +26,5 @@ public class MenuItem {
     public boolean setName(String name) { itemName = name; return true; }
     public boolean setPrice(int price) { itemPrice = price; return true;}
     public boolean setDescription(String dsc) { itemDescription = dsc; return true;}
+
 }
