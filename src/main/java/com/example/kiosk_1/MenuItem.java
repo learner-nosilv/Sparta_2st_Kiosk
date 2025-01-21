@@ -4,6 +4,7 @@ MenuItem: 세부 메뉴 속성 가지는 클래스
 예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거
 new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거")
 */
+package com.example.kiosk_1;
 
 public class MenuItem {
 }
