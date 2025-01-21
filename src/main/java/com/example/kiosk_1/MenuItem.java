@@ -29,6 +29,6 @@ public class MenuItem {
 
     // 객체 출력 시 출력되는 문자열 override
     public String toString() {
-        return itemName + "\t| W " + itemPrice + " |\t" + itemDescription;
+        return (itemName + "\t| W " + itemPrice + " |\t" + itemDescription);
     }
 }

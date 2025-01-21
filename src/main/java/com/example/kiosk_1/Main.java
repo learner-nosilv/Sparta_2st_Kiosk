@@ -14,30 +14,34 @@ public class Main {
         totalItems.add(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
         totalItems.add(new MenuItem("SmokeBurger", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
         totalItems.add(new MenuItem("CheeseBurger", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
-        boolean add = totalItems.add(new MenuItem("HamBurger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
+        totalItems.add(new MenuItem("HamBurger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
 
         Scanner sc = new Scanner(System.in);    // 입력 관련 메소드를 활용할 수 있는 스캐너 객체 생성
         System.out.println("[땡땡버거] 키오스크");
 
         while (true) {
-            int menu;
-            String name;
-            double price;
-            String description;
-
-            for (int i = 0; i < totalItems.size(); i++) {
-                System.out.println(i + 1 + ". " + totalItems.get(i).getName() + "\t| W " + totalItems.get(i).getPrice() + " |\t" + totalItems.get(i).getDescription());
-            }
+            int menu=0;
 
             // 모든 메뉴를 출력하기
-            System.out.println("1. ShackBurger\t| W 6.9 |\t토마토, 양상추, 쉑소스가 토핑된 치즈버거");
-            System.out.println("2. SmokeShack\t| W 8.9 |\t베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거");
-            System.out.println("3. Cheeseburger\t| W 6.9 |\t포테이토 번과 비프패티, 치즈가 토핑된 치즈버거");
-            System.out.println("4. Hamburger\t| W 5.4 |\t비프패티를 기반으로 야채가 들어간 기본버거");
+            int i=1;
+            for (MenuItem item : totalItems) {
+                System.out.println((i++) + ". "+ item);
+            }
             System.out.println("0. 종료\t\t\t|종료");
-            // 사용자가 선택한 메뉴 번호 입력 받기
-            System.out.print("메뉴 입력 >> ");
-            menu = sc.nextInt();
+
+            // 사용자가 선택한 메뉴 번호 입력 받기 / 적절한 값이 입력될 때까지 무한루프
+            while(true) {
+                System.out.print("메뉴 입력 >> ");
+                if (sc.hasNextInt()) {
+                    menu = sc.nextInt();
+                    sc.nextLine();  // 버퍼 비우기
+                    // 사용자 입력값이 적절한 경우
+                    if(menu>=0 && menu<totalItems.size()) {
+                        break;
+                    }
+                }
+                System.out.println("올바른 메뉴 번호를 입력하세요");
+            }
 
             // 사용자 선택 번호에 따라 다른 로직 실행
             switch (menu) {
@@ -47,8 +51,6 @@ public class Main {
                 case 1, 2, 3, 4:
                     System.out.println(menu + "번 선택");
                     break;
-                default:
-                    System.out.println("0~4 사이의 번호를 입력하세요");
             }
         }
     }
