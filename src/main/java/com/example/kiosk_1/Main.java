@@ -48,7 +48,7 @@ public class Main {
                 case 0:
                     System.out.println("키오스크를 종료합니다.");
                     return;
-                case 1, 2, 3, 4:
+                default:
                     System.out.println(menu + "번 선택");
                     break;
             }
