@@ -3,15 +3,31 @@ Main : 프로그램의 시작 지점이 되는 클래스
 */
 package com.example.kiosk_1;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // 4가지의 버거 메뉴 객체를 생성하고 리스트에 추가하기
+        List<MenuItem> totalItems = new ArrayList<>();
+        totalItems.add(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
+        totalItems.add(new MenuItem("SmokeBurger", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
+        totalItems.add(new MenuItem("CheeseBurger", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
+        boolean add = totalItems.add(new MenuItem("HamBurger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
+
         Scanner sc = new Scanner(System.in);    // 입력 관련 메소드를 활용할 수 있는 스캐너 객체 생성
         System.out.println("[땡땡버거] 키오스크");
 
-        while (true){
+        while (true) {
             int menu;
+            String name;
+            double price;
+            String description;
+
+            for (int i = 0; i < totalItems.size(); i++) {
+                System.out.println(i + 1 + ". " + totalItems.get(i).getName() + "\t| W " + totalItems.get(i).getPrice() + " |\t" + totalItems.get(i).getDescription());
+            }
 
             // 모든 메뉴를 출력하기
             System.out.println("1. ShackBurger\t| W 6.9 |\t토마토, 양상추, 쉑소스가 토핑된 치즈버거");
@@ -24,14 +40,14 @@ public class Main {
             menu = sc.nextInt();
 
             // 사용자 선택 번호에 따라 다른 로직 실행
-            switch (menu){
+            switch (menu) {
                 case 0:
                     System.out.println("키오스크를 종료합니다.");
                     return;
                 case 1, 2, 3, 4:
                     System.out.println(menu + "번 선택");
                     break;
-                default :
+                default:
                     System.out.println("0~4 사이의 번호를 입력하세요");
             }
         }
