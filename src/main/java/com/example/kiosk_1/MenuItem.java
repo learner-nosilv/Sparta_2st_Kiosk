@@ -23,8 +23,12 @@ public class MenuItem {
     public String getName(){return itemName;}
     public double getPrice(){ return itemPrice;}
     public String getDescription(){return itemDescription;}
-    public boolean setName(String name) { itemName = name; return true; }
-    public boolean setPrice(double price) { itemPrice = price; return true;}
-    public boolean setDescription(String dsc) { itemDescription = dsc; return true;}
+    public boolean setName(String name) { this.itemName = name; return true; }
+    public boolean setPrice(double price) { this.itemPrice = price; return true;}
+    public boolean setDescription(String dsc) { this.itemDescription = dsc; return true;}
 
+    // 객체 출력 시 출력되는 문자열 override
+    public String toString() {
+        return itemName + "\t| W " + itemPrice + " |\t" + itemDescription;
+    }
 }
