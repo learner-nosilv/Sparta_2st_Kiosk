@@ -48,14 +48,22 @@ public class Kiosk {
                 if (sc.hasNextInt()) {
                     select = sc.nextInt();
                     sc.nextLine();  // 버퍼 비우기
-                    // 입력값 유효성검사: 사용자 입력값이 적절한 경우
-                    if (select >= 0 && select <= totalMenus.size()) {
-                        selectCategory=select;
-                        break;
-                    }
+                }
+                else {
+                    sc.nextLine();
+                    System.out.println("올바른 카테고리 번호를 입력하세요");
+                    continue;
+                }
+
+                // 입력값 유효성검사: 사용자 입력값이 적절한 경우
+                if (select >= 0 && select <= totalMenus.size()) {
+                    selectCategory = select;
+                    break;
                 }
                 System.out.println("올바른 카테고리 번호를 입력하세요");
             }
+            // 사용자가 입력한 번호에 따라 다른 로직 구현
+            // 0 입력시 프로그램 종료
             if (select == 0) {
                 System.out.println("키오스크를 종료합니다.");
                 System.exit(0);
@@ -70,6 +78,11 @@ public class Kiosk {
                 if (sc.hasNextInt()) {
                     select = sc.nextInt();
                     sc.nextLine();  // 버퍼 비우기
+                }
+                else {
+                    sc.nextLine();
+                    System.out.println("올바른 메뉴 번호를 입력하세요");
+                    continue;
                 }
                 // 입력값 유효성검사: 사용자 입력값이 적절한 경우
                 if (select >= 0 && select <= totalMenus.get(selectCategory - 1).getCategoryItems().size()) {
