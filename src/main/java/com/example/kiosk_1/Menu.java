@@ -7,7 +7,7 @@ package com.example.kiosk_1;
 import java.util.List;
 
 public class Menu {
-    // Attributes: 카테고리이름, 카테고리에 속하는 MenuItem 객체의 List
+    // Attributes: 카테고리이름, 해당 카테고리에 속하는 MenuItem List
     private String category;
     private List<MenuItem> categoryItems;
 
@@ -20,4 +20,14 @@ public class Menu {
     // Getter Method - Encapsulation
     public String getCategory() { return this.category; }
     public List<MenuItem> getCategoryItems() { return this.categoryItems; }
+
+    // Menu 객체 출력에 사용될 문자열을 리턴하는 toString 메소드 오버라이딩
+    public String toString() {
+        String returnStr = "[ "+category + " ]\n";
+        int i=1;
+        for(MenuItem item : this.categoryItems) {
+            returnStr += ((i++) +". "+item.toString() + "\n");
+        }
+        return returnStr;
+    }
 }
